@@ -1,0 +1,73 @@
+import type { PoetryWork } from "./types";
+
+export const sampleWorks: PoetryWork[] = [
+  {
+    id: "sample-quiet-night",
+    slug: "jing-ye-si",
+    title: "静夜思",
+    author: "李白",
+    dynasty: "唐",
+    genre: "五言绝句",
+    content: "床前明月光\n疑是地上霜\n举头望明月\n低头思故乡",
+    notes: "以月色入笔，写游子夜半思乡之情。",
+    appreciation:
+      "全诗语言近乎白话，却以极简意象打开辽阔乡愁。明月、霜色、举头与低头之间，情绪自然转折，余味深长。",
+    tags: ["思乡", "月", "唐诗"],
+    featured: true,
+    published: true,
+    created_at: "2026-05-27T00:00:00.000Z",
+    updated_at: "2026-05-27T00:00:00.000Z",
+  },
+  {
+    id: "sample-spring-dawn",
+    slug: "chun-xiao",
+    title: "春晓",
+    author: "孟浩然",
+    dynasty: "唐",
+    genre: "五言绝句",
+    content: "春眠不觉晓\n处处闻啼鸟\n夜来风雨声\n花落知多少",
+    notes: "写春晨初醒的听觉与联想。",
+    appreciation:
+      "诗中不直接描摹春色，而以啼鸟、风雨、落花构成一个醒来的瞬间。轻淡之间，有惜春之意。",
+    tags: ["春", "自然", "唐诗"],
+    featured: true,
+    published: true,
+    created_at: "2026-05-27T00:00:00.000Z",
+    updated_at: "2026-05-27T00:00:00.000Z",
+  },
+  {
+    id: "sample-river-snow",
+    slug: "jiang-xue",
+    title: "江雪",
+    author: "柳宗元",
+    dynasty: "唐",
+    genre: "五言绝句",
+    content: "千山鸟飞绝\n万径人踪灭\n孤舟蓑笠翁\n独钓寒江雪",
+    notes: "以极寒山水写孤高之境。",
+    appreciation:
+      "前两句层层清空天地，后两句只留一舟一翁。孤独不是空洞的情绪，而是被雪光照亮的精神姿态。",
+    tags: ["冬", "山水", "孤高"],
+    featured: true,
+    published: true,
+    created_at: "2026-05-27T00:00:00.000Z",
+    updated_at: "2026-05-27T00:00:00.000Z",
+  },
+  {
+    id: "sample-water-melody",
+    slug: "shui-diao-ge-tou",
+    title: "水调歌头·明月几时有",
+    author: "苏轼",
+    dynasty: "宋",
+    genre: "词",
+    content:
+      "明月几时有\n把酒问青天\n不知天上宫阙\n今夕是何年\n我欲乘风归去\n又恐琼楼玉宇\n高处不胜寒\n起舞弄清影\n何似在人间",
+    notes: "中秋望月怀人，兼具旷达与深情。",
+    appreciation:
+      "词从问月起，以人间情意收束。它没有停在离别的哀感里，而把个人思念推向更开阔的祝愿。",
+    tags: ["中秋", "宋词", "明月"],
+    featured: false,
+    published: true,
+    created_at: "2026-05-27T00:00:00.000Z",
+    updated_at: "2026-05-27T00:00:00.000Z",
+  },
+];

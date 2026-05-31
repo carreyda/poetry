@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 清辞集
 
-## Getting Started
+一个用 Next.js 16 App Router 构建的诗词歌赋收集展示网站。前台用于典雅展示诗词，后台用于录入和维护作品。
 
-First, run the development server:
+## 本地启动
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 `http://localhost:3000` 查看网站。未配置 Supabase 时，前台会显示内置示例诗词，方便先预览页面。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase 配置
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. 在 Supabase 新建项目。
+2. 打开 SQL Editor，执行 `supabase/schema.sql`。
+3. 复制 `.env.example` 为 `.env.local`，填入：
 
-## Learn More
+```bash
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+ADMIN_PASSWORD=
+ADMIN_SESSION_SECRET=
+```
 
-To learn more about Next.js, take a look at the following resources:
+`SUPABASE_SERVICE_ROLE_KEY` 只在服务端后台写入时使用，不要暴露给浏览器或提交到仓库。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 后台入口
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+后台地址是 `http://localhost:3000/admin`。
 
-## Deploy on Vercel
+登录密码来自 `.env.local` 中的 `ADMIN_PASSWORD`。登录成功后可以新增、编辑作品，并切换发布状态。只有 `published = true` 的作品会出现在前台。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 数据结构
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+核心表为 `poetry_works`：
+
+- `slug`：作品详情页 URL 别名。
+- `title`、`author`、`dynasty`、`genre`：基础信息。
+- `content`：正文，使用换行分隔诗句。
+- `notes`：注释。
+- `appreciation`：赏析。
+- `tags`：标签数组。
+- `featured`：是否首页精选。
+- `published`：是否发布到前台。
+
+## 常用命令
+
+```bash
+npm run lint
+npm run build
+```

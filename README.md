@@ -1,6 +1,14 @@
 # 清辞集
 
-一个用 Next.js 16 App Router 构建的诗词歌赋收集展示网站。前台用于典雅展示诗词，后台用于录入和维护作品。
+一个用 **Next.js 16 App Router** 构建的诗词歌赋收集展示网站。前台用于典雅展示诗词，后台用于录入和维护作品。
+
+## 技术栈
+
+- **框架**: Next.js 16 (App Router)
+- **语言**: TypeScript
+- **样式**: Tailwind CSS 4
+- **数据库**: Supabase (PostgreSQL)
+- **部署**: Vercel
 
 ## 本地启动
 
@@ -36,18 +44,46 @@ ADMIN_SESSION_SECRET=
 
 核心表为 `poetry_works`：
 
-- `slug`：作品详情页 URL 别名。
-- `title`、`author`、`dynasty`、`genre`：基础信息。
-- `content`：正文，使用换行分隔诗句。
-- `notes`：注释。
-- `appreciation`：赏析。
-- `tags`：标签数组。
-- `featured`：是否首页精选。
-- `published`：是否发布到前台。
+| 字段 | 说明 |
+|------|------|
+| `slug` | 作品详情页 URL 别名 |
+| `title` | 标题 |
+| `author` | 作者 |
+| `dynasty` | 朝代 |
+| `genre` | 体裁 |
+| `content` | 正文，使用换行分隔诗句 |
+| `notes` | 注释 |
+| `appreciation` | 赏析 |
+| `tags` | 标签数组 |
+| `featured` | 是否首页精选 |
+| `published` | 是否发布到前台 |
+
+## 项目结构
+
+```
+├── lib/
+│   ├── app/                # App Router 页面
+│   │   ├── admin/          # 后台管理（登录 + 作品 CRUD）
+│   │   ├── works/          # 前台作品列表与详情页
+│   │   ├── layout.tsx      # 根布局
+│   │   ├── page.tsx        # 首页
+│   │   └── not-found.tsx   # 自定义 404
+│   ├── poetry.ts           # 数据查询层
+│   ├── sample-works.ts     # 内置示例数据
+│   ├── supabase/server.ts  # Supabase 服务端客户端
+│   ├── admin-auth.ts       # 后台登录认证
+│   └── types.ts            # 类型定义
+├── supabase/
+│   └── schema.sql          # 数据库建表和 RLS 策略
+├── public/                 # 静态资源
+└── .env.example            # 环境变量模板
+```
 
 ## 常用命令
 
 ```bash
-npm run lint
-npm run build
+npm run dev     # 启动开发服务器
+npm run build   # 生产构建
+npm run start   # 启动生产服务器
+npm run lint    # 代码检查
 ```

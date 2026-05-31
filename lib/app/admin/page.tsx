@@ -21,7 +21,7 @@ export default async function AdminLoginPage({
   return (
     <main className="admin-page">
       <section className="admin-panel login-panel">
-        <p className="eyebrow">清辞集后台</p>
+        <p className="eyebrow">古韵诗词后台</p>
         <h1>录入入口</h1>
         <p className="admin-muted">请输入环境变量中配置的后台密码。</p>
         {error ? <p className="danger-note">密码不正确，或后台密码尚未配置。</p> : null}

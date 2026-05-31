@@ -4,7 +4,7 @@ import { getPublishedWorks, getWorkStats } from "@/lib/poetry";
 
 export const metadata: Metadata = {
   title: "诗卷",
-  description: "浏览清辞集中收录的诗词歌赋。",
+  description: "浏览古韵诗词中收录的诗词歌赋。",
 };
 
 export default async function WorksPage() {

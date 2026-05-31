@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "清辞集",
-    template: "%s · 清辞集",
+    default: "古韵诗词",
+    template: "%s · 古韵诗词",
   },
   description: "一个用于收集、录入与展示诗词歌赋的典雅现代网站。",
 };

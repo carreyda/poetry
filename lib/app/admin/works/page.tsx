@@ -16,7 +16,7 @@ export default async function AdminWorksPage() {
     <main className="site-shell admin-page">
       <nav className="admin-nav">
         <Link className="text-link" href="/">
-          清辞集
+          古韵诗词
         </Link>
         <form action={logoutAction}>
           <button className="secondary-link" type="submit">
